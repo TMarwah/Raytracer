@@ -1,2 +1,2 @@
 # Raytracer
-Toy raytracing application built upon the Walnut app template and ImGui interface
+Raytracing application built upon the Walnut app template and ImGui interface
