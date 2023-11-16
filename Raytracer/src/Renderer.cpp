@@ -68,8 +68,8 @@ glm::vec4 Renderer::PerPixel(uint32_t x, uint32_t y)
 	glm::vec3 color(0.0f);
 
 	float multiplier = 1.0f;
-
 	int bounces = 2;
+
 	for (int i = 0; i < bounces; i++) 
 	{
 		Renderer::HitPayload payload = TraceRay(ray);
@@ -97,7 +97,7 @@ glm::vec4 Renderer::PerPixel(uint32_t x, uint32_t y)
 
 		multiplier *= 0.7;
 
-		ray.Origin = payload.WorldPosition + payload.WorldNormal * 0.00001f;
+		ray.Origin = payload.WorldPosition + payload.WorldNormal * 0.0001f;
 		ray.Direction = glm::reflect(ray.Direction, payload.WorldNormal);
 	}
 	return glm::vec4(color, 1.0f);
