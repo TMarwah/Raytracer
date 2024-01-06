@@ -9,4 +9,4 @@ Software Raytracer built upon the Walnut app template and ImGui.
 - Render emissive objects
 
 ## Reflection example
-![reflection example](https://github.com/TMarwah/Raytracer/blob/master/Documentation/ReflectionExample.png)
+![reflection example](https://github.com/TMarwah/Raytracer/blob/master/Documentation/reflection_example(FIXED).png)
