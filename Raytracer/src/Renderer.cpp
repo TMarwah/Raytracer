@@ -44,12 +44,6 @@ void Renderer::Render(const Scene& scene, const Camera& camera)
 	{
 		for (uint32_t x = 0; x < m_FinalImage->GetWidth(); x++)
 		{
-			PerPixel(x, y);
-			//coord is a 0-1 float based on resolution and image dimensions
-			glm::vec2 coord = { (float)x / (float)m_FinalImage->GetWidth(), (float)y / (float)m_FinalImage->GetHeight() };
-
-			//remap 0-1 into -1 - 1
-			coord = coord * 2.0f - 1.0f;
 			glm::vec4 color = PerPixel(x, y);
 			color = glm::clamp(color, glm::vec4(0.0f), glm::vec4(1.0f));
 			m_ImageData[x + y * m_FinalImage->GetWidth()] = Utils::ConvertToRGBA(color);
@@ -68,8 +62,8 @@ glm::vec4 Renderer::PerPixel(uint32_t x, uint32_t y)
 	glm::vec3 color(0.0f);
 
 	float multiplier = 1.0f;
-	int bounces = 2;
 
+	int bounces = 2;
 	for (int i = 0; i < bounces; i++) 
 	{
 		Renderer::HitPayload payload = TraceRay(ray);
@@ -83,17 +77,17 @@ glm::vec4 Renderer::PerPixel(uint32_t x, uint32_t y)
 
 		}
 
-		glm::vec3 lightDir = glm::normalize(glm::vec3(-1.0, -1.0, -1.0));
+		glm::vec3 lightDir = glm::normalize(glm::vec3(-1, -1, -1));
 
 
 		float lightIntensity = glm::max(glm::dot(payload.WorldNormal, -lightDir), 0.0f); // same as cosine of the angle between them between -1 to 1 (light source intensity)
 
 		const Sphere& sphere = m_ActiveScene->Spheres[payload.ObjectIndex];
 
-		glm::vec3 sphereColor = sphere.Albedo;
+		glm::vec3 sphereColor = sphere.Mat.Albedo;
 		sphereColor *= lightIntensity;
 
-		color = sphereColor * multiplier;
+		color += sphereColor * multiplier;
 
 		multiplier *= 0.7;
 
