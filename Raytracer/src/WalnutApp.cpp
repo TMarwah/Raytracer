@@ -16,7 +16,6 @@ public:
 	ExampleLayer()
 		:m_Camera(45.0f, 0.1f, 100.0f) 
 	{
-
 		Material& pinkSphere = m_Scene.Materials.emplace_back();
 		pinkSphere.Albedo = { 1.0f, 0.0f, 1.0f };
 		pinkSphere.Roughness = 0.0f;
