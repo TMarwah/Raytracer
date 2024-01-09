@@ -14,4 +14,4 @@ Software Raytracer built upon the Walnut app template and ImGui.
 ## Accumulation example
 Accumulation Disabled           |  Accumulation Enabled
 :-------------------------:|:-------------------------:
-![](https://github.com/TMarwah/Raytracer/blob/master/Documentation/pre_accumulation_render.png) |  ![](https://github.com/TMarwah/Raytracer/blob/master/Documentation/post_accumulation_render.png)
+![](https://github.com/TMarwah/Raytracer/blob/master/Documentation/pre_accumulation_render_fixed.png) |  ![](https://github.com/TMarwah/Raytracer/blob/master/Documentation/post_accumulation_render.png)
