@@ -43,7 +43,9 @@ public:
 	}
 	virtual void OnUpdate(float ts) override
 	{
-		m_Camera.OnUpdate(ts);
+		//if camera is moving, reset frame index to prevent "afterimages" from accumulation
+		if (m_Camera.OnUpdate(ts))
+			m_Renderer.ResetFrameIndex();
 	}
 
 	virtual void OnUIRender() override
@@ -51,10 +53,15 @@ public:
 		ImGui::Begin("Settings");
 		ImGui::Text("Last render: %.3fms", m_LastRenderTime);
 		ImGui::Text("FPS: %.1f", 1 / (m_LastRenderTime / 1000));
-		if (ImGui::Button("render")) 
-		{
+
+		if (ImGui::Button("Render")) 
 			Render();
-		}
+
+		ImGui::Checkbox("Accumulate", &m_Renderer.GetSettings().Accumulate);
+
+		if (ImGui::Button("Reset"))
+			m_Renderer.ResetFrameIndex();
+
 		ImGui::End();
 
 		ImGui::Begin("Scene");
