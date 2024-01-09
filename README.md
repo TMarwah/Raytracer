@@ -10,3 +10,8 @@ Software Raytracer built upon the Walnut app template and ImGui.
 
 ## Reflection example
 ![reflectionexample](https://github.com/TMarwah/Raytracer/blob/master/Documentation/reflection_exampled(FIXED).png)
+
+## Accumulation example
+Accumulation Disabled           |  Accumulation Enabled
+:-------------------------:|:-------------------------:
+![](https://github.com/TMarwah/Raytracer/blob/master/Documentation/pre_accumulation_render.png) |  ![](https://github.com/TMarwah/Raytracer/blob/master/Documentation/post_accumulation_render.png)
