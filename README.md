@@ -1,5 +1,5 @@
 # Raytracer
-Software Raytracer built upon the Walnut app template and ImGui. 
+Software Raytracer built using the Walnut app template and ImGui.
 
 # Goals
 - Gain a better understanding of the underlying mathematics behind raytracing and physically based rendering
